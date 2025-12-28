@@ -1,0 +1,105 @@
+{
+  "name": "@martin.xyz/openapi-decorators",
+  "description": "Auto-Generate OpenAPI specifications from Typescript decorators",
+  "version": "0.0.1-next.2",
+  "author": {
+    "name": "Martin PAUCOT",
+    "email": "contact@martin-paucot.Fr"
+  },
+  "type": "module",
+  "main": "./dist/modules/index.cjs",
+  "types": "./dist/modules/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    ".": {
+      "import": "./dist/modules/index.mjs",
+      "require": "./dist/modules/index.cjs"
+    },
+    "./metadata": {
+      "import": "./dist/modules/metadata.mjs",
+      "require": "./dist/modules/metadata.cjs"
+    },
+    "./decorators": {
+      "import": "./dist/modules/decorators.mjs",
+      "require": "./dist/modules/decorators.cjs"
+    },
+    "./errors": {
+      "import": "./dist/modules/errors.mjs",
+      "require": "./dist/modules/errors.cjs"
+    },
+    "./ui": {
+      "import": "./dist/modules/ui.mjs",
+      "require": "./dist/modules/ui.cjs"
+    },
+    "./utils": {
+      "import": "./dist/modules/utils.mjs",
+      "require": "./dist/modules/utils.cjs"
+    },
+    "./types": {
+      "import": "./dist/modules/types.mjs",
+      "require": "./dist/modules/types.cjs"
+    }
+  },
+  "homepage": "https://github.com/kerwanp/openapi-decorators",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kerwanp/openapi-decorators.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kerwanp/openapi-decorators/issues"
+  },
+  "keywords": [
+    "openapi",
+    "swagger",
+    "rest",
+    "api",
+    "oapi_3",
+    "oapi_3_1",
+    "typescript"
+  ],
+  "scripts": {
+    "build": "unbuild",
+    "prepack": "unbuild",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "test": "vitest run",
+    "coverage": "vitest run --coverage",
+    "version": "yarn prepare && yarn build",
+    "automd": "automd"
+  },
+  "dependencies": {
+    "deepmerge": "^4.3.1",
+    "openapi-types": "^12.1.3",
+    "type-fest": "^5.3.1"
+  },
+  "peerDependencies": {
+    "reflect-metadata": "^0.2.2"
+  },
+  "devDependencies": {
+    "@adonisjs/eslint-config": "^2.1.2",
+    "@adonisjs/prettier-config": "^1.4.5",
+    "@adonisjs/tsconfig": "^1.4.1",
+    "@swc/core": "^1.15.7",
+    "@types/express": "^5",
+    "@types/node": "25.0.3",
+    "@vitest/coverage-v8": "4.0.16",
+    "automd": "^0.4.2",
+    "eslint": "^9.39.2",
+    "express": "^5.2.1",
+    "fastify": "^5.6.2",
+    "prettier": "^3.7.4",
+    "reflect-metadata": "0.2.2",
+    "typescript": "^5.9.3",
+    "unbuild": "^3.6.1",
+    "unplugin-swc": "1.5.9",
+    "vitest": "^4.0.16"
+  },
+  "prettier": "@adonisjs/prettier-config",
+  "packageManager": "yarn@4.12.0"
+}
