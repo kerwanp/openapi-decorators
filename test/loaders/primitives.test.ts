@@ -1,5 +1,5 @@
 import type { Context } from '../../src/context.js'
-import { PrimitiveTypeLoader } from '../../src/loaders/type.js'
+import { PrimitiveTypeLoader } from '../../src/loaders/primitives.js'
 
 const context: Context = { schemas: {}, typeLoaders: [], logger: console }
 

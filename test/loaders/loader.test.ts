@@ -9,21 +9,6 @@ const context: Context = {
   },
 }
 
-test('array', async () => {
-  expect(await loadType(context, { type: [String] })).toEqual({
-    type: 'array',
-    items: {
-      type: 'string',
-    },
-  })
-})
-
-test('primitive', async () => {
-  expect(await loadType(context, { type: Number })).toEqual({
-    type: 'number',
-  })
-})
-
 test('enum', async () => {
   expect(await loadType(context, { enum: ['openapi', 'graphql'] })).toEqual({
     type: 'string',
@@ -50,4 +35,23 @@ test('raw schema', async () => {
     type: 'number',
     enum: [24, 69],
   })
+})
+
+test('should warn with unsupported TypeValue', async () => {
+  let warn: any
+  await loadType(
+    {
+      ...context,
+      logger: {
+        warn: (message) => {
+          warn = message
+        },
+      },
+    },
+    {
+      type: { hello: 'world' },
+    }
+  )
+
+  expect(warn).toBeDefined()
 })

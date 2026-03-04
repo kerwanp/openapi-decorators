@@ -1,7 +1,7 @@
 import 'reflect-metadata'
 import type { Context } from '../../src/context.js'
 import { ApiProperty } from '../../src/decorators/api_property.js'
-import { ArrayTypeLoader } from '../../src/loaders/type.js'
+import { ArrayTypeLoader } from '../../src/loaders/array.js'
 
 let error: string | undefined
 const context: Context = {
@@ -38,13 +38,11 @@ test('model', async () => {
 })
 
 test('empty array should warn', async () => {
-  // @ts-expect-error
   expect(await ArrayTypeLoader(context, [])).toEqual(undefined)
   expect(error).toContain('You tried to specify an array type without any item')
 })
 
 test('array with multiple items should warn', async () => {
-  // @ts-expect-error
   expect(await ArrayTypeLoader(context, [String, Number])).toEqual(undefined)
   expect(error).toContain('You tried to specify an array type with multiple items.')
 })
