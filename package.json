@@ -1,7 +1,7 @@
 {
   "name": "@martin.xyz/openapi-decorators",
   "description": "Auto-Generate OpenAPI specifications from Typescript decorators",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": {
     "name": "Martin PAUCOT",
     "email": "contact@martin-paucot.Fr"
@@ -27,6 +27,10 @@
     "./decorators": {
       "import": "./dist/modules/decorators.mjs",
       "require": "./dist/modules/decorators.cjs"
+    },
+    "./generators": {
+      "import": "./dist/modules/generators.mjs",
+      "require": "./dist/modules/generators.cjs"
     },
     "./errors": {
       "import": "./dist/modules/errors.mjs",
