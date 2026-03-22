@@ -6,6 +6,7 @@ export default defineBuildConfig({
     './modules/decorators.ts',
     './modules/metadata.ts',
     './modules/generators.ts',
+    './modules/loaders.ts',
     './modules/errors.ts',
     './modules/ui.ts',
     './modules/utils.ts',

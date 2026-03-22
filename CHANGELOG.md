@@ -1,5 +1,11 @@
 # @martin.xyz/openapi-decorators
 
+## 0.1.2
+
+### Patch Changes
+
+- Export loaders
+
 ## 0.1.1
 
 ### Patch Changes
