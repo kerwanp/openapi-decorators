@@ -156,8 +156,16 @@ test('simple schema', async () => {
             author: {
               $ref: '#/components/schemas/User',
             },
+            status: {
+              $ref: '#/components/schemas/PostStatus',
+            },
           },
-          required: ['id', 'author'],
+          required: ['id', 'author', 'status'],
+        },
+        PostStatus: {
+          type: 'string',
+          enum: ['DRAFT', 'PUBLISHED'],
+          description: 'The post status',
         },
       },
     },

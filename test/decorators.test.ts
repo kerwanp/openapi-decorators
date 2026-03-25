@@ -29,6 +29,8 @@ import {
   OperationSecurityMetadataStorage,
   PropertyMetadataStorage,
 } from '../modules/metadata.js'
+import { registerEnumType } from '../src/decorators/enum.js'
+import { EnumMetadataStorage } from '../src/metadata/enum.js'
 
 test('@ApiOperation', () => {
   const parameters: OperationParameterMetadata[] = [
@@ -242,6 +244,11 @@ test('@ApiExtraModels', () => {
 })
 
 test('@ApiProperty', () => {
+  enum PostStatus {
+    DRAFT = 'DRAFT',
+    PUBLISHED = 'PUBLISHED',
+  }
+
   class User {
     @ApiProperty()
     declare declared: string
@@ -251,6 +258,9 @@ test('@ApiProperty', () => {
 
     @ApiProperty({ type: 'string' })
     explicitType = 'test'
+
+    @ApiProperty({ type: PostStatus })
+    enum = PostStatus.PUBLISHED
 
     @ApiProperty({ example: 'hey' })
     get getter(): string {
@@ -299,4 +309,20 @@ test('@ApiProperty', () => {
   })
   // @ts-expect-error
   expect(metadata.func?.type()).toEqual(Boolean)
+})
+
+test('registerEnumType', () => {
+  enum PostStatus {
+    DRAFT = 'DRAFT',
+    PUBLISHED = 'PUBLISHED',
+  }
+
+  registerEnumType(PostStatus, {
+    name: 'PostStatus',
+  })
+
+  const metadata = EnumMetadataStorage.getMetadata(PostStatus)
+
+  expect(metadata.name).toEqual('PostStatus')
+  expect(metadata.object).toEqual(PostStatus)
 })

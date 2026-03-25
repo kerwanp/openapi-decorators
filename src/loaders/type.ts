@@ -9,6 +9,7 @@ import { ArrayTypeLoader } from './array.js'
 import { StandardJSONSchemaTypeLoader } from './standard_json_schema.js'
 import { JSONSchemaTypeLoader } from './json_schema.js'
 import { inspect } from 'node:util'
+import { EnumTypeLoader } from './enum.js'
 
 /**
  * Transforms a type option into a SchemaObject or ReferenceObject.
@@ -44,6 +45,7 @@ export async function loadType(
     StandardJSONSchemaTypeLoader,
     JSONSchemaTypeLoader,
     ...context.typeLoaders,
+    EnumTypeLoader,
     ClassTypeLoader,
   ]) {
     const result = await loader(context, value, options.type)

@@ -16,3 +16,4 @@ export {
   ApiSecurity,
 } from '../src/decorators/api_security.js'
 export { ApiTags } from '../src/decorators/api_tags.js'
+export { registerEnumType } from '../src/decorators/enum.js'

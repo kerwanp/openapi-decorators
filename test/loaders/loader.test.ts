@@ -1,3 +1,4 @@
+import 'reflect-metadata'
 import type { Context } from '../../src/context.js'
 import { loadType } from '../../src/loaders/type.js'
 
